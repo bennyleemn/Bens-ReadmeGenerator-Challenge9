@@ -1,10 +1,10 @@
-# This Thing Here
+# ReadMe Generator
 
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 ## Description
 
-I wil later
+I created a professional (cough, cough) quality command line ReadMe generator to make it quicker to get one created.
 
 ## Table of Contents
 
@@ -22,19 +22,19 @@ This project is licensed under the MIT License. To learn more, see the [License]
 
 ## Installation
 
-node index.js
+Run NPM Install so the packages are run. Then run node index.js in the command line.
 
 ## Usage
 
-Sparingly
+Enter the data requested at the prompts
 
 ## Contributing
 
-however they want to
+Feedback either directly or via gitHub
 
 ## Tests
 
-guess
+I haven't figured that out yet.
 
 ## Questions
 
