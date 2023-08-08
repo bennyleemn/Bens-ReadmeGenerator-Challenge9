@@ -1,59 +1,59 @@
 // Packages needed for this application
-const inquirer = require('inquirer');
-const fs = require('fs');
+const inquirer = require("inquirer");
+const fs = require("fs");
 
 // An array of questions for user input
 const questions = [
   {
-    type: 'input',
-    name: 'name',
-    message: 'What is your name?',
+    type: "input",
+    name: "name",
+    message: "What is your full name?",
   },
   {
-    type: 'input',
-    name: 'title',
-    message: 'What is the title of your project?',
+    type: "input",
+    name: "title",
+    message: "What is the title of your project?",
   },
   {
-    type: 'input',
-    name: 'description',
-    message: 'Provide a description of your project:',
+    type: "input",
+    name: "description",
+    message: "Provide a description of your project:",
   },
   {
-    type: 'input',
-    name: 'installation',
-    message: 'How to install your project?',
+    type: "input",
+    name: "installation",
+    message: "How to install your project?",
   },
   {
-    type: 'input',
-    name: 'usage',
-    message: 'How to use your project?',
+    type: "input",
+    name: "usage",
+    message: "How to use your project?",
   },
   {
-    type: 'input',
-    name: 'contributing',
-    message: 'How can others contribute to your project?',
+    type: "input",
+    name: "contributing",
+    message: "How can others contribute to your project?",
   },
   {
-    type: 'input',
-    name: 'tests',
-    message: 'How to run tests for your project?',
+    type: "input",
+    name: "tests",
+    message: "How are tests run for your project?",
   },
   {
-    type: 'input',
-    name: 'email',
-    message: 'What is your email address?',
+    type: "input",
+    name: "email",
+    message: "What is your email address?",
   },
   {
-    type: 'input',
-    name: 'github',
-    message: 'What is your GitHub username?',
+    type: "input",
+    name: "github",
+    message: "What is your GitHub username?",
   },
   {
-    type: 'list',
-    name: 'license',
-    message: 'Choose a license for your project:',
-    choices: ['MIT', 'Apache 2.0', 'GNU GPLv3', 'ISC', 'None'],
+    type: "list",
+    name: "license",
+    message: "Choose a license for your project:",
+    choices: ["MIT", "Apache 2.0", "GNU GPLv3", "ISC", "None"],
   },
 ];
 
@@ -61,9 +61,9 @@ const questions = [
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, (err) => {
     if (err) {
-      console.error('Error writing README file:', err);
+      console.error("Error writing README file:", err);
     } else {
-      console.log('README.md file has been successfully generated!');
+      console.log("README.md file has been successfully generated!");
     }
   });
 }
@@ -72,43 +72,44 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions).then((answers) => {
     const markdown = generateMarkdown(answers);
-    writeToFile('README.md', markdown);
+    const fileName = `${answers.name}_README.md`;
+    writeToFile(fileName, markdown);
   });
 
   // Function to generate the license badge based on the provided license
-function renderLicenseBadge(license) {
-  if (license) {
-    return `![License](https://img.shields.io/badge/license-${license}-green.svg)`;
+  function renderLicenseBadge(license) {
+    if (license) {
+      return `![License](https://img.shields.io/badge/license-${license}-green.svg)`;
+    }
+    return "";
   }
-  return '';
-}
 
-// Function to generate the license link based on the provided license
-function renderLicenseLink(license) {
-  if (license) {
-    return `[License](https://opensource.org/licenses/${license})`;
+  // Function to generate the license link based on the provided license
+  function renderLicenseLink(license) {
+    if (license) {
+      return `[License](https://opensource.org/licenses/${license})`;
+    }
+    return "";
   }
-  return '';
-}
 
-// Function to generate the license section of the README
-function renderLicenseSection(license) {
-  if (license) {
-    return `## License
+  // Function to generate the license section of the README
+  function renderLicenseSection(license) {
+    if (license) {
+      return `## License
 
 This project is licensed under the ${license} License. To learn more, see the [License](https://opensource.org/licenses/${license}).`;
+    }
+    return "";
   }
-  return '';
-}
 
-// Function to generate markdown for README
-function generateMarkdown(data) {
-  const licenseBadge = renderLicenseBadge(data.license);
-  const licenseLink = renderLicenseLink(data.license);
-  const licenseSection = renderLicenseSection(data.license);
+  // Function to generate markdown for README
+  function generateMarkdown(data) {
+    const licenseBadge = renderLicenseBadge(data.license);
+    const licenseLink = renderLicenseLink(data.license);
+    const licenseSection = renderLicenseSection(data.license);
 
-// Links to data within the markdown file
-  return `# ${data.title}
+    // Links to data within the markdown file
+    return `# ${data.title}
 
 ${licenseBadge}
 
@@ -118,7 +119,7 @@ ${data.description}
 
 ## Table of Contents
 
-${licenseLink ? '- [License](#license)\n' : ''}  
+${licenseLink ? "- [License](#license)\n" : ""}  
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -149,9 +150,9 @@ If you have any questions, feel free to reach out via the following platforms:
 
 - Email: ${data.email}
 - GitHub: [${data.github}](https://github.com/${data.github})`;
-}
+  }
 
-module.exports = generateMarkdown;
+  module.exports = generateMarkdown;
 }
 
 // Function call to initialize app again
