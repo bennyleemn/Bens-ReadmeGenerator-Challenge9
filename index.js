@@ -1,8 +1,8 @@
-// TODO: Include packages needed for this application
+// Packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-// TODO: Create an array of questions for user input
+// An array of questions for user input
 const questions = [
   {
     type: 'input',
@@ -57,7 +57,7 @@ const questions = [
   },
 ];
 
-// TODO: Create a function to write README file
+// Function to write README file
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, (err) => {
     if (err) {
@@ -68,7 +68,7 @@ function writeToFile(fileName, data) {
   });
 }
 
-// TODO: Create a function to initialize app
+// Function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
     const markdown = generateMarkdown(answers);
@@ -107,6 +107,7 @@ function generateMarkdown(data) {
   const licenseLink = renderLicenseLink(data.license);
   const licenseSection = renderLicenseSection(data.license);
 
+// Links to data within the markdown file
   return `# ${data.title}
 
 ${licenseBadge}
@@ -153,5 +154,5 @@ If you have any questions, feel free to reach out via the following platforms:
 module.exports = generateMarkdown;
 }
 
-// Function call to initialize app
+// Function call to initialize app again
 init();
