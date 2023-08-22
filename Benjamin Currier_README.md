@@ -1,10 +1,10 @@
-# ReadMe Generator
+# Challenge #11 - Note Taking App
 
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+![License](https://img.shields.io/badge/license-None-green.svg)
 
 ## Description
 
-Create a readme generator to save time.
+To create an app that will make notes for you. You can create a note, save a note, look at prior notes. Functionality to delete a note is TBD.
 
 ## Table of Contents
 
@@ -18,23 +18,23 @@ Create a readme generator to save time.
 
 ## License
 
-This project is licensed under the MIT License. To learn more, see the [License](https://opensource.org/licenses/MIT).
+This project is licensed under the None License. To learn more, see the [License](https://opensource.org/licenses/None).
 
 ## Installation
 
-npm install, node index.js
+Open Terminal, run 'npm install', then run 'npm start' - go to http//localhost3000 to see homepage - go from there.
 
 ## Usage
 
-Use command line prompt - node index.js
+You can go to try it out and add a note or look at a prior server version. You can create a new note by hitting the save button once a title and content have been added. You can review prior notes by clicking on them.
 
 ## Contributing
 
-reach out via email or github
+Public Github Repo contribution or by reaching out to me directly for access.
 
 ## Tests
 
-not there yet
+TBD.
 
 ## Questions
 
